@@ -1,0 +1,67 @@
+<%- include('../layouts/header.ejs') -%>
+
+<style>
+  .table-custom {
+    background-color: rgba(0, 0, 0, 0.8); 
+  }
+  
+  .table-custom td {
+    background-color: rgba(230, 199, 28, 0.8);
+    color: #333;
+    padding: 10px; 
+    border: 1px solid #000000;
+  }
+  
+  .outer-gradient {
+    background: linear-gradient(to right, #00c6ff, #9b2844);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .card-gradient {
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    border-radius: 8px;
+  }
+  </style>
+  
+  
+<div class="outer-gradient">
+  <div class="card card-gradient" style="width: 50%;">
+    <div class="card-body">
+      <h2 class="card-title mb-4">Welcome, <%= user.name %> </h2>
+
+      <table class="table table-striped table-custom">
+        <tbody>
+          <tr>
+            <td>Email:</td>
+            <td><%= user.email %></td>
+          </tr>
+          <tr>
+            <td>Mobile Number:</td>
+            <td><%= user.phone %></td>
+          </tr>
+          <tr>
+            <td>User Verification</td>
+            <td>
+              <% if (user.isVerified == 1) { %>
+                <p>Verified</p>
+              <% } else { %>
+                <p>Not Verified</p>
+              <% } %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <a href="/edit/<%= user._id %>" class="btn btn-primary">Edit details</a>
+      <a href="/logout" class="btn btn-secondary float-end">Logout</a>
+    </div>
+  </div>
+</div>
+
+<%- include('../layouts/footer.ejs') -%>
+
+
+

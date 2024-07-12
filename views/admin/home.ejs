@@ -1,0 +1,43 @@
+<%- include('../layouts/header.ejs') -%>
+
+<section class="vh-100 gradient-custom">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+
+            <h1 class="fw-bold mb-4 text-uppercase">Welcome, <%= userData.name %></h1>
+
+            <table class="table table-striped mt-4">
+              <tbody>
+                <tr>
+                  <td>Email:</td>
+                  <td><%= userData.email %></td>
+                </tr>
+                <tr>
+                  <td>Mobile:</td>
+                  <td><%= userData.phone %></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="d-flex justify-content-between mt-4">
+              <a href="/admin/dashboard" class="btn btn-primary">Dashboard</a>
+              <a href="/admin/logout" class="btn btn-danger">Logout</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  body {
+    background-color: #565c5c;
+  }
+</style>
+
+<%- include('../layouts/footer.ejs') -%>

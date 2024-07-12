@@ -1,0 +1,52 @@
+<%- include('../layouts/header.ejs') -%>
+<style>
+    .outer-gradient {
+        background: linear-gradient(to right, #00c6ff, #0072ff);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card-gradient {
+        background: linear-gradient(to right, #ff7e5f, #feb47b);
+        border-radius: 8px;
+    }
+</style>
+    <div class="outer-gradient">
+        <div class="card card-gradient" style="width: 50%;">
+            <div class="card-body">
+                <h2 class="card-title mb-4 text-center">Edit Profile</h2>
+
+                <form action="/edit/<%= user._id %>" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" class="form-control" value="<%= user.name %>"
+                            placeholder="Enter Name" required>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" value="<%= user.email %>"
+                            placeholder="Enter Email" required>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="phone">Mobile Number</label>
+                        <input type="text" id="phone" name="phone" class="form-control" value="<%= user.phone %>"
+                            placeholder="Enter Mobile Number" required>
+                    </div>
+                    <br>
+
+                    <div class="text-center">
+                        <input type="submit" class="btn btn-primary" value="Update Profile">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <%- include('../layouts/footer.ejs') -%>
+
+
+   

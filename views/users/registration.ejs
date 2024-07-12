@@ -1,0 +1,56 @@
+<%- include('../layouts/header.ejs') -%>
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container">
+      <div class="row d-flex justify-content-center align-items-center h-100 ">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card m-5">
+            <div class="card-body bg-secondary p-5">
+              <h1 class="text-uppercase text-center mb-5">User Registration</h1>
+
+              <form method="POST">
+                <input type="text" name="name" id="name" placeholder="Enter Name" class="form-control form-control-lg"
+                  required />
+                <br /><br />
+                <input type="email" name="email" id="email" placeholder="Enter Email"
+                  class="form-control form-control-lg" required />
+                <br /><br />
+                <input type="number" name="phone" id="phone" placeholder="Enter Number"
+                  class="form-control form-control-lg" required />
+                <br /><br />
+                <input type="password" name="password" placeholder="Enter Password" id="password"
+                  class="form-control form-control-lg" required />
+                <br /><br />
+                <div class="d-flex justify-content-center">
+                  <button type="submit" value="Register"
+                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">submit</button>
+                </div>
+                <br /><br />
+                <% if(typeof message !=='undefined' ){ %>
+                  <p class="d-flex justify-content-center text-white">
+                    <%= message %>
+                  </p>
+                  <% } %>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <style>
+    .gradient-custom-3 {
+
+      background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
+    }
+
+    .gradient-custom-4 {
+
+      background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
+    }
+  </style>
+
+
+
+
+  <%- include('../layouts/footer.ejs') -%>

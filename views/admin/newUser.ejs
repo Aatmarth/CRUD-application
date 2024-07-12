@@ -1,0 +1,53 @@
+<%- include('../layouts/header.ejs') -%>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-black text-white">
+                    <h3 class="card-title mb-0">Add New User</h3>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Number</label>
+                            <input type="number" class="form-control" id="phone" name="phone" placeholder="Enter Number" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" required/>
+                        </div>
+                        <button type="submit" class="btn btn-success mt-2">Submit</button>
+                        <a href="/admin/dashboard" class="btn btn-secondary mt-3 float-end">Go Back</a>
+                    </form>
+                    <% if(typeof message !== 'undefined'){ %>
+                        <p class="mt-3 text-success"><%= message %></p>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../layouts/footer.ejs') -%>
+
+<style>
+  body {
+    background-color: #599e9e;
+}
+
+.card {
+    background-color: #ffffff; 
+    border: 1px solid #dee2e6; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+</style>

@@ -1,0 +1,82 @@
+<%- include('../layouts/header.ejs') -%>
+
+<section class="vh-100 gradient-custom">
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <div class="card">
+          <div class="card-header bg-secondary text-white text-center">
+            <h1 class="mb-0">DASHBOARD</h1>
+          </div>
+          <div class="card-body">
+            <div class="mb-3">
+              <a href="/admin/newUser" class="btn btn-secondary">Add New User</a>
+            </div>
+
+            <form class="mb-3">
+              <div class="input-group">
+                <input type="text" class="form-control w-25" placeholder="Search User by name, email or mobile" name="search">
+                <button class="btn btn-outline-secondary" type="submit">Search</button>
+              </div>
+            </form>
+
+            <table id="myTable" class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Mobile</th>
+                  <th>Verified</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% if (users.length > 0) {
+                  for (let i = 0; i < users.length; i++) { %>
+                    <tr>
+                      <td><%= users[i].name %></td>
+                      <td><%= users[i].email %></td>
+                      <td><%= users[i].phone %></td>
+                      <td>
+                        <% if (users[i].isVerified == 0) { %>
+                          <span class="badge bg-danger">Not Verified</span>
+                        <% } else { %>
+                          <span class="badge bg-success">Verified</span>
+                        <% } %>
+                      </td>
+                      <td>
+                        <a href="/admin/editUser?id=<%= users[i]._id %>" class="btn btn-sm btn-primary">Edit</a>
+                        <a href="#" onclick="confirmDelete('<%= users[i]._id %>', '<%= users[i].name %>')" class="btn btn-sm btn-danger">Delete</a>
+                      </td>
+                    </tr>
+                  <% }
+                } %>
+              </tbody>
+            </table>
+
+            <a href="/admin/home" class="btn btn-secondary">Return to Home</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<style>
+  body {
+    background-color: #599e9e;
+  }
+
+</style>
+
+<script>
+  function confirmDelete(userId, userName) {
+    const confirmation = confirm(`Are you sure you want to delete ${userName}?`);
+    if (confirmation) {
+      window.location.href = `/admin/deleteUser?id=${userId}`;
+    }
+  }
+</script>
+
+<%- include('../layouts/footer.ejs') -%>
